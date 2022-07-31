@@ -12,20 +12,18 @@ from django.views.generic import (
 from django.contrib.auth.models import User
 
 
-def home(request):
-    return render(request, 'planner/home.html')
 
-
-class RecordListView(LoginRequiredMixin, ListView):
+class ChildRecordListView(LoginRequiredMixin, ListView):
     model = Child_Info
-    template_name = 'planner/child_table.html'
+    template_name = 'planner/home.html'
+    context_object_name = 'child_records'
 
 
-class RecordDetailView(DetailView):
+class ChildRecordDetailView(DetailView):
     model = Child_Info
 
 
-class RecordCreateView(LoginRequiredMixin, CreateView):
+class ChildRecordCreateView(LoginRequiredMixin, CreateView):
     model = Child_Info
     fields = ['first name', 'last name', 'patronymic', 'id parent', 'birthdate']
 
@@ -34,7 +32,7 @@ class RecordCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class RecordUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class ChildRecordUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Child_Info
     fields = ['first name', 'last name', 'patronymic', 'id parent', 'birthdate']
 
@@ -49,7 +47,7 @@ class RecordUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
-class RecordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ChildRecordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Child_Info
     success_url = '/'
 
