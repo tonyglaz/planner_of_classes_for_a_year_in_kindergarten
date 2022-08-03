@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Child_Info
+from .models import Child_Info, Group_Info, Parent_Info
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     ListView,
@@ -11,6 +11,11 @@ from django.views.generic import (
 )
 from django.contrib.auth.models import User
 
+
+class GroupRecordListView(LoginRequiredMixin, ListView):
+    model = Group_Info
+    template_name = 'planner/groups.html'
+    context_object_name = 'groups_records'
 
 
 class ChildRecordListView(LoginRequiredMixin, ListView):

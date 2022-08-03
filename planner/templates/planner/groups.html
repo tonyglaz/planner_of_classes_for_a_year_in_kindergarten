@@ -1,0 +1,23 @@
+{% extends "planner/base.html" %}
+{% block content %}
+    {% for group in  groups_records %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <h2><a class="article-title" href="{% url 'record-detail' group.id %}">{{ group.title }}</a></h2>
+                </div>
+                {% for child in groups_records %}
+                    <table>
+                        <tr>
+                            <td>{{ child.id_child.first_name }}</td>
+                            <td>{{ child.id_child.last_name }}</td>
+                            <td>{{ child.id_child.patronymic }}</td>
+                            <td>{{ child.id_child.id_parent }}</td>
+                            <td>{{ child.id_child.birthdate }}</td>
+                        </tr>
+                    </table>
+                {% endfor %}
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
