@@ -3,15 +3,15 @@
 <html>
 <head>
     <!-- Обязательные мета-теги -->
-    <meta charset="utf-8">
+     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap, иконки и шрифт -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900'
           rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'planner/css/styles.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="{% static 'planner/css/styles.css' %}">
 
     {% if title %}
         <title>Блог клуба {{ title }}</title>
@@ -46,13 +46,13 @@
         </div>
     </nav>
 </header>
-<main role="main" class="container">
+<div class="container">
     <div class="row">
         <div class="col-md-10">
             {% block content %}{% endblock %}
         </div>
     </div>
-</main>
+</div>
 <!-- Футер закреплен внизу, независимо от количества постов на странице -->
 <footer class="text-center bg-dark">
     <p><a href="{% url 'planner-home' %}">© Детский сад "Ромашка"</a></p>
