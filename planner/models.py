@@ -7,7 +7,7 @@ class Parent_Info(models.Model):
     phone_number = models.IntegerField()
 
     def __str__(self):
-        return self.first_name + self.last_name +(str)(self.phone_number)
+        return self.first_name + self.last_name + (str)(self.phone_number)
 
 
 class Child_Info(models.Model):
@@ -19,3 +19,10 @@ class Child_Info(models.Model):
 
     def __str__(self):
         return self.first_name + self.last_name + self.patronymic
+
+
+class Group_Info(models.Model):
+    title = models.CharField(max_length=50)
+    id_child = models.ForeignKey(Child_Info, on_delete=models.CASCADE)
+
+
